@@ -5,21 +5,21 @@ using UnityEngine.AI;
 
 public class StarkieAI : MonoBehaviour
 {
-    private int m_Hp;
-    private float m_Speed;
-    private int m_DamageAmount;
-    private float m_AttackSpeed;
-    private float m_NextAttack;
-    private float m_StoppingDistance;
+    private int m_Hp;                           // Hp
+    private float m_Speed;                      // Movement speed that will be plugged in the NavMeshAgent's speed
+    private int m_DamageAmount;                 // Damage amount for each attack
+    private float m_AttackSpeed;                // Attack speed, will control the timer till the next attack
+    private float m_NextAttack;                 // Will be uploaded before each attack and will run as a timer
+    private float m_StoppingDistance;           // Will be used to tell the NavMeshAgent how far from the target the agent needs to stop before attacking
 
-    private NavMeshAgent m_Agent;
-    public Animator m_Anim;
+    private NavMeshAgent m_Agent;               // NavMeshAgent that will be used to handle every movement on the map
+    public Animator m_Anim;                     // Will be used to control the animations linked to this GameObject
 
-    private GameObject m_Target;
-    private Player_Controller m_PlayerData;
+    private GameObject m_Target;                // Used to tell the NavMeshAgent its destination 
+    private Player_Controller m_PlayerData;     // Used to get the player's Hp status
 
 
-    public enum IState
+    public enum IState                          // The different states the enemy can be in
     {
         Idle,
         Chase,
@@ -28,9 +28,9 @@ public class StarkieAI : MonoBehaviour
     }
 
 
-    public IState m_State;
+    public IState m_State;                     // Will be used as a State Machine for the decision making
 
-	private void Start ()
+    private void Start ()
     {
         m_Target = EnemySpawner.Instance.ProvideTarget();
 

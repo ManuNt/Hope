@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class CrosshairManager : MonoBehaviour
 {
-    public Animator m_Anim;
-    public Image m_CrosshairImg;
+    public Animator m_Anim;                             // The crosshair animation
+    public Image m_CrosshairImg;                        // The actual crosshair image
 
-    private Camera m_Camera;
-    private const float MAX_DISTANCE = 1000f;
+    private Camera m_Camera;                            // The camera is used to for the raycast, that if it hits an enemy, the crosshair will turn red
+    private const float MAX_DISTANCE = 1000f;           // How far can the raycast go
 
-    public Sprite m_Gun, m_GunTarget, m_Rifle, m_RifleTarget, m_Melee, m_NotPossible;
-    private enum ITargetSprite
+    public Sprite m_Gun, m_GunTarget, m_Rifle, m_RifleTarget, m_Melee, m_NotPossible;       // Represents the different sprites used depending on the selected weapon, and if it is targeting an enemy
+    private enum ITargetSprite                          // The different sprite states
     {
         Gun,
         Rifle,
@@ -20,7 +20,7 @@ public class CrosshairManager : MonoBehaviour
         Not,
     }
 
-    private ITargetSprite m_TargetSprite;
+    private ITargetSprite m_TargetSprite;               // Used as a State Machine
 
     // Singleton
     private static CrosshairManager m_Instance;
@@ -31,7 +31,7 @@ public class CrosshairManager : MonoBehaviour
 
 
 
-    public bool m_IsEnemyTargeted, m_IsMoving;
+    public bool m_IsEnemyTargeted, m_IsMoving;          // Used to regulate what is targeted for the State Machine, and if the player is moving (its precision won't be the same)
 
     private void Awake()
     {

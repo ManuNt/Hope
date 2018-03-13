@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class Mp7 : MonoBehaviour
 {
-    public ParticleSystem m_MuzzleFlash;
+    public ParticleSystem m_MuzzleFlash;                // Used for the muzzle flash when shooting
 
-    private Camera m_Camera;
+    private Camera m_Camera;                            // Used for the raycast going from the camera when shooting
 
 
-    public static int m_MaxAmmo, m_CurrentAmmo;
-    private const float FIRE_SPEED = 13; // The number of bullet per second
-    private float m_WaitTilNextFire;
-    private int m_Damage;
+    public static int m_MaxAmmo, m_CurrentAmmo;         // Used to regulate the amount of amunition. Static because used by the HUD and the ammo manager
+    private const float FIRE_SPEED = 13;                // The number of bullet per second
+    private float m_WaitTilNextFire;                    // Used as a timer between the shots
+    private int m_Damage;                               // The amount of hit points the rifle does
 
-    private Animator m_Anim;
+    private Animator m_Anim;                            // The animation of the rifle when shooting
 
-    private AudioSource m_Mp7SoundSource;
-    public AudioClip m_Shoot;
+    private AudioSource m_Mp7SoundSource;               // The audio source from where the shot will be fired
+    public AudioClip m_Shoot;                           // The actual rifle shot sound
 
     private void Start ()
     {
@@ -30,6 +30,7 @@ public class Mp7 : MonoBehaviour
         m_Anim = GetComponent<Animator>();
 
         m_Mp7SoundSource = GetComponent<AudioSource>();
+        m_Mp7SoundSource.clip = m_Shoot;
 
     }
 	
@@ -54,6 +55,7 @@ public class Mp7 : MonoBehaviour
         {
             m_CurrentAmmo--;
             m_Anim.SetTrigger("Shoot");
+            m_Mp7SoundSource.Play();
 
             RaycastHit hit;
 

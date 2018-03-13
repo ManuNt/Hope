@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EndGameMenu : MonoBehaviour
 {
-    public Text m_EndGameText;
+    public Text m_EndGameText;      // Represents the text on the end game panel showing if the player has won or not. Also plugs the panel's button actions
 
     private void Start()
     {

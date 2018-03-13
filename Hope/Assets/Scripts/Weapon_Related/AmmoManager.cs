@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class AmmoManager : MonoBehaviour
 {
-
+    // Used as a singleton to ease the acces to the data from multiple GameObjects and scripts
     private static AmmoManager m_Instance;
     public static AmmoManager Instance { get { return m_Instance; } }
 
-    private const float RESPAWN_TIME = 180f;
+    private const float RESPAWN_TIME = 180f;        // How long before the next respawn
 
     private void Awake()
     {

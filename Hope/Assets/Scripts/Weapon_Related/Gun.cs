@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public ParticleSystem m_MuzzleFlash;
-    private Camera m_Camera;
-    private Animator m_Anim;
-    private int m_Damage;
+    public ParticleSystem m_MuzzleFlash;        // Used for the muzzle flash when shooting
+    private Camera m_Camera;                    // Used for the raycast going from the camera when shooting
+    private Animator m_Anim;                    // The animation of the gun when shooting
+    private int m_Damage;                       // The amount of hit points the gun does
 
-    public static int m_MaxAmmo;
-    public static int m_CurrentAmmo;
+    public static int m_MaxAmmo, m_CurrentAmmo; // Used to regulate the amount of amunition. Static because used by the HUD and the ammo manager
 
-    private AudioSource m_GunSoundSource;  // Not included yet (GOLD)
-    public AudioClip m_Shoot;
+    private AudioSource m_GunSoundSource;       // The audio source from where the shot will be fired
+    public AudioClip m_Shoot;                   // The actual gun shot sound
 
-	private void Start ()
+    private void Start ()
     {
 
         m_GunSoundSource = GetComponent<AudioSource>();
+        m_GunSoundSource.clip = m_Shoot;
         m_Camera = Camera.main;
 
         m_Anim = GetComponent<Animator>();
@@ -45,6 +45,7 @@ public class Gun : MonoBehaviour
     {
         m_CurrentAmmo--;
         m_Anim.SetTrigger("Shoot");
+        m_GunSoundSource.Play();
 
         RaycastHit hit;
 

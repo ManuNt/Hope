@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
+    // Represents the button actions of the Main Menu, each action calls a method in the GameManager
+
     public void NewGame()
     {
         GameManager.Instance.LoadDocsScene();

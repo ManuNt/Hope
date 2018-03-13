@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-
+    // Represents the different button actions on the pause menu. The actions are all in the GameManager script (singleton)
 
     public void Resume()
     {

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Credits : MonoBehaviour
+public class Credits : MonoBehaviour            // Since for the music, I have used a royalty free music and I have inspired this game on another one, the credits are very importants
 {
-    private string m_Inspired, m_Music;
-    public Text m_TxtHope, m_TxtMusic;
+    private string m_Inspired, m_Music;         // Holds the credits text
+    public Text m_TxtHope, m_TxtMusic;          // The UI placeholder where the text will be
 
     private void Start()
     {

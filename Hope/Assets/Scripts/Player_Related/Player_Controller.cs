@@ -23,7 +23,7 @@ public class Player_Controller : MonoBehaviour
 
     private static float m_KnockbackForce, m_KnockTime, m_KnockCounter; // Not fully Implemented
 
-    public static bool m_IsGamePaused;
+    public static bool m_IsGamePaused;  // Used to know if the player can move or not
 
 
     private void Start()

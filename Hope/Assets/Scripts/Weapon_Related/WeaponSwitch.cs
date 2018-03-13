@@ -5,8 +5,8 @@ using UnityEngine;
 public class WeaponSwitch : MonoBehaviour
 {
 
-    public GameObject[] m_Weapons;
-    public static int m_SelectedWeapon;
+    public GameObject[] m_Weapons;              // The array of weapon GameObjects
+    public static int m_SelectedWeapon;         // Will be used to control the weapon selection
 
     private void Start ()
     {

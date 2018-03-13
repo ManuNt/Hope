@@ -5,24 +5,24 @@ using UnityEngine.UI;
 
 public class EnemySpawner : MonoBehaviour
 {
-    // Singleton
+    // Used as a singleton to ease the acces to the data from multiple GameObjects and scripts
     private static EnemySpawner m_Instance;
     public static EnemySpawner Instance { get { return m_Instance; } }
 
-    public GameObject m_StarkiePrefab;
-    public Transform[] m_Spawners = new Transform[10];
-    private float m_SpawningSpeed, m_NextSpawn;
+    public GameObject m_StarkiePrefab;                                          // The actuel enemy's prefab
+    public Transform[] m_Spawners = new Transform[10];                          // The different spawning spots
+    private float m_SpawningSpeed, m_NextSpawn;                                 // Used to regulate the spawning process
+        
+    public GameObject m_Player;                                                 // Used to feed a target to the spawned agent
 
-    public GameObject m_Player;
+    private int m_Counter;                                                      // Used to regulate the amount spawned
+    public int m_NoofEnemiesKilled, m_WaveNb, m_EnemyCount;                     // Used to know how many enemy have been kill, and the current wave number used to know how many enemy will be spawned
+    private const int MAX_NOOF_ENEMIES_INCREMENTER = 10;                        // Represents the increase amount for every new wave
+    private const int INITIAL_NOOF_ENEMIES = 30;                                // The initial number of enemies
+    private bool m_CanSpawn, m_CanUpdateInfo, m_FirstSpawning, m_IsTimerOn;     // Used to regulate the spawning process and the information displayed
 
-    private int m_Counter;
-    public int m_NoofEnemiesKilled, m_WaveNb, m_EnemyCount;
-    private const int MAX_NOOF_ENEMIES_INCREMENTER = 10;
-    private const int INITIAL_NOOF_ENEMIES = 30;
-    private bool m_CanSpawn, m_CanUpdateInfo, m_FirstSpawning, m_IsTimerOn;
-
-    public static bool m_IsTimerDone;
-    public HUD m_Timer;
+    public static bool m_IsTimerDone;                                           // Used to know if the next wave can spawn
+    public HUD m_Timer;                                                         // Used to connect to the HUD's timer
 
     private void Awake()
     {

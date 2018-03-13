@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Box_Rotator : MonoBehaviour
 {
-    private float m_RotationSpeed;
+    private float m_RotationSpeed;      // The GameObject's rotation speed
 
 
 	private void Start ()

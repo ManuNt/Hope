@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class TimerBetweenWave : MonoBehaviour
 {
-    private const int TIME_BETWEEN_WAVES = 30;
-    public Text m_TxtTimer;
+    private const int TIME_BETWEEN_WAVES = 30;              // The amount of time between the waves
+    public Text m_TxtTimer;                                 // The actual timer text on screen
 	
 	private void Start ()
     {

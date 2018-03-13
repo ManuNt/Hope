@@ -5,13 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    // Used as a singleton to ease the acces to the data from multiple GameObjects and scripts
 
     private static GameManager m_Instance;
     public static GameManager Instance { get { return m_Instance; } }
 
     public GameObject m_OptionMenu; // Options Canvas
-    public GameObject m_PauseMenu, m_EndGameUIPrefab, m_Credits;
-    public bool m_IsGameOver;
+    public GameObject m_PauseMenu, m_EndGameUIPrefab, m_Credits, m_Controls; // The different menus prefabs
+    public bool m_IsGameOver;       // Checks if the game is over in order to trigger other actions
 
 	private void Awake ()
     {
@@ -105,5 +106,10 @@ public class GameManager : MonoBehaviour
         m_IsGameOver = true;
         EnableMouse();
         GameObject endScreen = Instantiate(m_EndGameUIPrefab);
+    }
+
+    public void ShowControls()
+    {
+        GameObject controls = Instantiate(m_Controls);
     }
 }

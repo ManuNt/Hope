@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    public Text m_PlayerHp, m_WaveNb, m_Ammo, m_EnemiesLeft;
-    public Image m_SelectedWeaponIcon;
-    public Sprite[] m_Icons;
-    public GameObject m_TimerBetweenWaves;
+    public Text m_PlayerHp, m_WaveNb, m_Ammo, m_EnemiesLeft;        // Represents all the texts on the HUD
+    public Image m_SelectedWeaponIcon;                              // Used to show an icon of the selected weapon
+    public Sprite[] m_Icons;                                        // The list of icons used
+    public GameObject m_TimerBetweenWaves;                          // Holds the timer's text
 
-    public Image m_BloodScreen;
-    Color m_color;
+    public Image m_BloodScreen;                                     // Used to show the player the amount of damage by flooding the screen with blood
+    Color m_color;                                                  // Used to change the alpha color of the blood (can't do it directly on the image)
 
     private void Start()
     {

@@ -160,6 +160,7 @@ MonoBehaviour:
   m_EndGameUIPrefab: {fileID: 1904816813758250, guid: d535decff4f520a41aa4b2b98f653666,
     type: 2}
   m_Credits: {fileID: 1138099967033838, guid: c785b8ea3082ebb49bf42eb368c5ff38, type: 2}
+  m_Controls: {fileID: 1880841681143396, guid: 6b6505aa738fef845818e5cd10e0b988, type: 2}
   m_IsGameOver: 0
 --- !u!114 &114936910121238958
 MonoBehaviour:

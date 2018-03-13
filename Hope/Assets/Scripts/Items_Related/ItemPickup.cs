@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
+    // Used as a token script
+
     private void OnTriggerEnter(Collider aCol)
     {
         if (aCol.tag == "Player")
